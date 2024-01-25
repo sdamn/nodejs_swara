@@ -1,7 +1,7 @@
 {
   "name": "my-node-app",
   "version": "1.0.0",
-  "description": "A simple Node.js app with Express and Clarifai",
+  "description": "A simple Node.js app with Express, Clarifai, and dotenv",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -10,6 +10,7 @@
   "dependencies": {
     "express": "*",
     "axios": "*",
-    "clarifai": "*"
+    "clarifai": "*",
+    "dotenv": "*"
   }
 }

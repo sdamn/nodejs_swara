@@ -3,10 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Node App</title>
+  <title>Image Recognition</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    form {
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    #imageInput {
+      margin-bottom: 10px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, Cloudflare Pages!</h1>
+  <h1>Image Recognition</h1>
+  <form id="uploadForm" enctype="multipart/form-data">
+    <label for="imageInput" class="material-icons">cloud_upload</label>
+    <input type="file" name="image" id="imageInput" accept="image/*" required>
+    <button type="submit" class="material-icons">search</button>
+  </form>
+  <div id="result"></div>
+
+  <script>
+    document.getElementById('uploadForm').addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(this);
+
+      try {
+        const response = await fetch('/upload', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          const result = await response.json();
+          document.getElementById('result').innerText = `Recognized Concepts: ${result.recognizedConcepts.join(', ')}`;
+        } else {
+          console.error('Error:', response.statusText);
+          document.getElementById('result').innerText = 'Error occurred during recognition.';
+        }
+      } catch (error) {
+        console.error('Error:', error.message);
+        document.getElementById('result').innerText = 'Error occurred during recognition.';
+      }
+    });
+  </script>
 </body>
 </html>
- 
