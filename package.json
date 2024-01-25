@@ -1,13 +1,15 @@
 {
   "name": "my-node-app",
   "version": "1.0.0",
-  "description": "A simple Node.js app with Express",
-  "main": "src/server.js",
+  "description": "A simple Node.js app with Express and Clarifai",
+  "main": "index.js",
   "scripts": {
-    "start": "node src/server.js",
+    "start": "node index.js",
     "build": "npm install && echo 'Build complete'"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "*",
+    "axios": "*",
+    "clarifai": "*"
   }
 }
