@@ -1,16 +1,16 @@
 {
-  "name": "my-node-app",
+  "name": "image-recognition-app",
   "version": "1.0.0",
-  "description": "A simple Node.js app with Express, Clarifai, and dotenv",
+  "description": "Image recognition app using Clarifai",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "build": "npm install && echo 'Build complete'"
   },
   "dependencies": {
-    "express": "*",
     "axios": "*",
-    "clarifai": "*",
-    "dotenv": "*"
+    "dotenv": "*",
+    "express": "*",
+    "multer": "*"
   }
 }
