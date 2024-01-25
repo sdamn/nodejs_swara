@@ -1,10 +1,11 @@
 {
   "name": "my-node-app",
   "version": "1.0.0",
-  "description": "A simple Node.js app",
+  "description": "A simple Node.js app with Express",
   "main": "src/server.js",
   "scripts": {
-    "start": "node src/server.js"
+    "start": "node src/server.js",
+    "build": "npm install && echo 'Build complete'"
   },
   "dependencies": {
     "express": "^4.17.1"
